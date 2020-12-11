@@ -4,17 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Chat socket</title>
+    <title>CLUEDO</title>
 </head>
 <body>
-    <div id="chat">
-        <div id="c-window"></div>
-        <input type="text" id="message" placeholder="Write here..." />
-        <button id="send">Send</button>
-    </div>
+    <div id="mostradora"></div>
+    <table>
+        <tr>
+            <td>
+                <div id="chat">
+                    <p><b>Chat</b></p>
+                    <div id="c-window"></div>
+                    <input type="text" id="message" placeholder="Escribe tu mensaje aquí..." />
+                    <button id="send">Enviar</button>
+                </div>
+            </td>
+            <td style="margin-left: 20px;">
+                <div id="jugadores"></div>
+                <br>
+                <div id="game-info">
+                    <label for="characters">Elige tu personaje:</label>
+                    <select name="characters" id="characters">
+                        <option value="980000">Srta. Amapola</option>
+                        <option value="FFFFFF">Sra. Blanco</option>
+                        <option value="CFE2F3">Sra. Celeste</option>
+                        <option value="0000FF">Agen. Índigo</option>
+                        <option value="A64D79">Mtra. Magenta</option>
+                        <option value="9900FF">Prof. Mora</option>
+                        <option value="7F6000">Tte. Moreno</option>
+                        <option value="FF00FF">Dra. Orquídea</option>
+                        <option value="6AA84F">P. Prado</option>
+                        <option value="FFFF00">Cnel. Rubio</option>
+                    </select>
+                    <button id="select-char">Seleccionar</button>
+                </div>
+                <br>
+                <div>
+                    <div id="sobre"></div>
+                    <table>
+                        <tr>
+                            <td><div id="d1">1</div></td>
+                            <td><div id="d2">1</div></td>
+                        </tr>
+                    </table>
+                    <button id="throw">Tirar los dados</button>
+                </div>
+            </td>
+            <td>
+                <div id="ensena"></div>
+                <br>
+                <div id="cards"></div>
+            </td>
+        </tr>
+    </table>
 
     <!-- Scripts -->
     <script src="/socket.io/socket.io.js"></script>
-    <script src="chat.js"></script>
+    <script src="game.js"></script>
 </body>
 </html>
