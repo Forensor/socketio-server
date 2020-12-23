@@ -20,35 +20,42 @@ const io = socketio.listen(server);
 let players = [];
 
 let armas = [
-  'candelabro',
-  'llave',
-  'punal',
-  'revolver',
-  'soga',
-  'tubo'
+  'cuchillo',
+  'escopeta',
+  'cuerda',
+  'bate',
+  'nunchaku',
+  'pie',
+  'botella',
+  'nutria',
+  'hoz',
+  'matarratas'
 ];
 let lugares = [
-  'baile',
-  'biblioteca',
-  'billar',
-  'cocina',
-  'comedor',
-  'conservatorio',
-  'estudio',
-  'lobby',
-  'sala'
+  'iglesia',
+  'posada',
+  'ayuntamiento',
+  'bar',
+  'comisaria',
+  'casona',
+  'granja',
+  'colegio',
+  'plaza',
+  'antro',
+  'colmado',
+  'kiosco'
 ];
 const sospechosoIMG = [
-  ['Srta. Amapola', 'amapola'],
-  ['Sra. Blanco', 'blanco'],
-  ['Sra. Celeste', 'celeste'],
-  ['Agen. Índigo', 'indigo'],
-  ['Mtra. Magenta', 'magenta'],
-  ['Prof. Mora', 'mora'],
-  ['Tte. Moreno', 'moreno'],
-  ['Dra. Orquídea', 'orquidea'],
-  ['P. Prado', 'prado'],
-  ['Cnel. Rubio', 'rubio']
+  ['Anacleto Botana', 'anacleto'],
+  ['Bonifacio III', 'bonifacio'],
+  ['Casimiro Tolomiro', 'casimiro'],
+  ['Cleta Lacocleta', 'cleta'],
+  ['Gertrudis González', 'gertrudis'],
+  ['Gilberto Ibáñez', 'gilberto'],
+  ['Guadalupe Ramos', 'guadalupe'],
+  ['Hipólito Mirañar', 'hipolito'],
+  ['Isidora', 'isidora'],
+  ['Jacinta Balmes', 'jacinta']
 ];
 
 let acusados = [];
@@ -112,23 +119,30 @@ io.on('connection', (socket) => {
   socket.on('newGame', () => {
     players = [];
     armas = [
-      'candelabro',
-      'llave',
-      'punal',
-      'revolver',
-      'soga',
-      'tubo'
+      'cuchillo',
+      'escopeta',
+      'cuerda',
+      'bate',
+      'nunchaku',
+      'pie',
+      'botella',
+      'nutria',
+      'hoz',
+      'matarratas'
     ];
     lugares = [
-      'baile',
-      'biblioteca',
-      'billar',
-      'cocina',
-      'comedor',
-      'conservatorio',
-      'estudio',
-      'lobby',
-      'sala'
+      'iglesia',
+      'posada',
+      'ayuntamiento',
+      'bar',
+      'comisaria',
+      'casona',
+      'granja',
+      'colegio',
+      'plaza',
+      'antro',
+      'colmado',
+      'kiosco'
     ];
     acusados = [];
     io.sockets.emit('refresh');

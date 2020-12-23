@@ -27,7 +27,7 @@ select.addEventListener('click', () => {
   document.getElementById('game-info').innerHTML = `Juegas con: <div id="playing" style="background-color: #${characters.value};">${characters.options[characters.selectedIndex].text}</div>`;
   socket.emit('player', { name: characters.options[characters.selectedIndex].text });
 
-  if (document.getElementById('playing').innerHTML === 'Cnel. Rubio') {
+  if (document.getElementById('playing').innerHTML === 'Anacleto Botana') {
     document.getElementById('game-info').innerHTML += '<button id="newGame">Nuevo juego</button>';
     document.getElementById('game-info').innerHTML += '<button id="repartir">Repartir cartas</button>';
     document.getElementById('newGame').addEventListener('click', () => {
@@ -75,8 +75,9 @@ socket.on('carta', (data) => {
 socket.on('acusados', (data) => {
   document.getElementById('sobre').innerHTML += '<button id="abrir">Abrir sobre con la solución</button>';
   document.getElementById('abrir').addEventListener('click', () => {
-    let mostrador = `
-      <div id="mostrador" style="position: absolute; top: 0; left: 0; background-image: url('img/fondo.png'); width: 100%; height: 100%; z-index: 100;">
+    if (document.getElementById('mostrador') === null) {
+      let mostrador = `
+      <div id="mostrador" style="position: absolute; top: 0; left: 0; background-image: url('img/fondo.png'); width: 3000px; height: 3000px; z-index: 100;">
         <div id="cerrar" style="opacity: 1; color: white; cursor: pointer;">CERRAR</div>
         <br><br>
         <img src="img/${data[0]}.png" style="opacity: 1;">
@@ -91,6 +92,7 @@ socket.on('acusados', (data) => {
     document.getElementById('cerrar').addEventListener('click', () => {
       document.getElementById('mostrador').remove();
     });
+    }
   });
 });
 
@@ -115,9 +117,9 @@ socket.on('ensenaboton', (data) => {
 });
 
 socket.on('cartaparati', (data) => {
-  if (data.name == document.getElementById('playing').innerHTML) {
+  if (data.name == document.getElementById('playing').innerHTML && document.getElementById('mostrador') === null) {
     let mostrador = `
-      <div id="mostrador" style="position: absolute; top: 0; left: 0; background-image: url('img/fondo.png'); width: 100%; height: 100%; z-index: 100;">
+      <div id="mostrador" style="position: absolute; top: 0; left: 0; background-image: url('img/fondo.png'); width: 3000px; height: 3000px; z-index: 100;">
         <div id="cerrar" style="opacity: 1; color: white; cursor: pointer;">CERRAR</div>
         <br><br>
         <img src="${data.url}" style="opacity: 1;">
